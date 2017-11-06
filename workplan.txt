@@ -1,0 +1,11 @@
+﻿Ariana Olson, Andrew Pan, Jonah Spear
+Lab 3 Work Plan
+
+
+Steps:
+1. Create a circuit diagram (Do by 11/7) - 2 hours
+2. Create table mapping instruction to control signal values (Do by 11/8) - 2 hours
+3. Implement all sub-components and write unit tests (Do by 11/11) - 4 hours
+4. Working Assembly Program (Do by 11/13) - 1.5 hours
+5. Integration tests (Do by 11/13) - 1.5 hours
+6. Lab Report (Do by 11/17) - 2 hours
