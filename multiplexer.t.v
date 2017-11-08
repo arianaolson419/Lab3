@@ -64,6 +64,63 @@ module mux32to1by1Test
 	end
 endmodule // mux32to1by1Test
 
+module mux3to1by6Test
+	(
+		input begintest,
+		output reg endtest,
+		output reg dutpassed
+	);
+
+	reg[5:0] input0, input1, input2, input3;
+	reg[1:0] address;
+	wire[5:0] out;
+
+	mux4to1by6 DUT (input0, input1, input2, input3, address, out);
+
+	always @(posedge begintest) begin
+		endtest = 0;
+		dutpassed = 1;
+
+		// Test Case 1:
+		// Ensure that the value chosen by the mux matches
+		// the value at the given address.
+		input0 = 6'd1;
+		input1 = 6'd2;
+		input2 = 6'd3;
+		input3 = 6'd4;
+		address = 2'd0;
+		#5
+		if (out != input0) begin
+			$display("3 wide 6 deep mux test case 1 failed at address 00.");
+			dutpassed = 0;
+		end
+
+		address = 2'd1;
+		#5
+		if (out != input1) begin
+			$display("3 wide 6 deep mux test case 1 failed at address 01.");
+			dutpassed = 0;
+		end
+
+		address = 2'd2;
+		#5
+		if (out != input2) begin
+			$display("3 wide 6 deep mux test case 1 failed at address 10.");
+			dutpassed = 0;
+		end
+
+		address = 2'd3;
+		#5
+		if (out != input2) begin
+			$display("3 wide 6 deep mux test case 1 failed at address 11.");
+			dutpassed = 0;
+		end
+
+		#5
+		endtest = 1;
+	end
+endmodule
+
 // Unit test the 32 wide 32 deep mux module.
 module mux32to32by1Test(
 	input begintest,
