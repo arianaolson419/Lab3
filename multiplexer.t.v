@@ -64,7 +64,7 @@ module mux32to1by1Test
 	end
 endmodule // mux32to1by1Test
 
-module mux3to1by6Test
+module mux4inputTest
 	(
 		input begintest,
 		output reg endtest,
@@ -75,7 +75,7 @@ module mux3to1by6Test
 	reg[1:0] address;
 	wire[5:0] out;
 
-	mux4to1by6 DUT (input0, input1, input2, input3, address, out);
+	mux4input #(.width(6)) DUT (input0, input1, input2, input3, address, out);
 
 	always @(posedge begintest) begin
 		endtest = 0;
