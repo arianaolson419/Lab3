@@ -1,3 +1,18 @@
+// Inputs are 6 by 1 addresses
+module mux4to1by6
+(
+input[5:0] input0, input1, input2, input3,
+input[1:0] address,
+output[5:0] out
+);
+	wire[1:0] mux [5:0];
+	assign mux[0] = input0;
+	assign mux[1] = input1;
+	assign mux[2] = input2;
+	assign mux[3] = input3;
+	assign out = mux[address];
+endmodule
+
 // A 32:1 multiplexer.
 module mux32to1by1
 (
