@@ -4,7 +4,8 @@ The memory used in the CPU
 
 module memory
 #(
-    parameter addresswidth  = 32,
+    // parameter addresswidth  = 32,
+    parameter addresswidth  = 8,
     parameter depth         = 2**addresswidth,
     parameter width         = 32
 )
