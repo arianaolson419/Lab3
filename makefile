@@ -1,4 +1,4 @@
 all: core
 
-core: core.v
-	iverilog -Wall -o core core.v
+core: core.v core.t.v
+	iverilog -Wall -o core core.t.v
