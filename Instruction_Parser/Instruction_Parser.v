@@ -8,4 +8,6 @@ module Instruction_Parser
     output[15:0] imm,
     output[25:0] addr,
     output ALUCtrl, MemToReg, MemWr, ALUSrc, PCSel, RegDst, RegWr, AddSel
-)
+);
+
+endmodule
