@@ -23,6 +23,12 @@ module Controller
     localparam SLT_f = 6'h2a;
     localparam SUB_f = 6'h22;
 
+    // ALU Control mapping
+    localparam alu_add = 2'd0;
+    localparam alu_sub = 2'd1;
+    localparam alu_xor = 2'd2;
+    localparam alu_slt = 2'd4;
+
     always @ * begin
         case (Op)
             LW: begin
@@ -30,7 +36,7 @@ module Controller
                 ALUSrc = 1;
                 RegWr = 1;
                 MemWr = 0;
-                //ALUCtrl = add
+                ALUCtrl = alu_add;
                 MemToReg = 1;
                 PCSel = 1;
                 AddSel = 1'bx;
@@ -40,7 +46,7 @@ module Controller
                 ALUSrc = 1;
                 RegWr = 0;
                 MemWr = 1;
-                //ALUCtrl = add
+                ALUCtrl = alu_add;
                 MemToReg = 1'bx;
                 PCSel = 1;
                 AddSel = 1'bx;
@@ -50,7 +56,7 @@ module Controller
                 ALUSrc = 1'bx;
                 RegWr = 0;
                 MemWr = 1;
-                //ALUCtrl = x
+                ALUCtrl = 2'bxx;
                 MemToReg = 1'bx;
                 PCSel = 0;
                 AddSel = 0;
@@ -60,7 +66,7 @@ module Controller
                 ALUSrc = 1'bx;
                 RegWr = 1;
                 MemWr = 0;
-                //ALUCtrl = x
+                ALUCtrl = 2'bxx;
                 MemToReg = 2'd2;
                 PCSel = 0;
                 AddSel = 1;
@@ -70,7 +76,7 @@ module Controller
                 ALUSrc = 0;
                 RegWr = 0;
                 MemWr = 0;
-                //ALUCtrl = sub
+                ALUCtrl = alu_sub;
                 MemToReg = 2'bxx;
                 PCSel = 1;
                 AddSel = 2'd2;
@@ -80,7 +86,7 @@ module Controller
                 ALUSrc = 1;
                 RegWr = 1;
                 MemWr = 0;
-                //ALUCtrl = xor
+                ALUCtrl = alu_xor;
                 MemToReg = 0;
                 PCSel = 1;
                 AddSel = 0;
@@ -90,7 +96,7 @@ module Controller
                 ALUSrc = 1;
                 RegWr = 1;
                 MemWr = 0;
-                //ALUCtrl = add
+                ALUCtrl = alu_add;
                 MemToReg = 0;
                 PCSel = 1;
                 AddSel = 0;
@@ -103,7 +109,7 @@ module Controller
                         ALUSrc = 1'bx;
                         RegWr = 0;
                         MemWr = 0;
-                        //ALUCtrl = x
+                        ALUCtrl = 2'bxx;
                         MemToReg = 1'bx;
                         PCSel = 2'd2;
                         AddSel = 0;
@@ -113,7 +119,7 @@ module Controller
                         ALUSrc = 0;
                         RegWr = 1;
                         MemWr = 0;
-                        //ALUCtrl = add
+                        ALUCtrl = alu_add;
                         MemToReg = 0;
                         PCSel = 1;
                         AddSel = 0;
@@ -123,7 +129,7 @@ module Controller
                         ALUSrc = 0;
                         RegWr = 1;
                         MemWr = 0;
-                        //ALUCtrl = SLT
+                        ALUCtrl = alu_slt;
                         MemToReg = 0;
                         PCSel = 1;
                         AddSel = 0;
@@ -133,7 +139,7 @@ module Controller
                         ALUSrc = 0;
                         RegWr = 1;
                         MemWr = 0;
-                        //ALUCtrl = SUB
+                        ALUCtrl = alu_sub;
                         MemToReg = 0;
                         PCSel = 1;
                         AddSel = 0;
@@ -143,7 +149,7 @@ module Controller
                         ALUSrc = 1'bx;
                         RegWr = 1'bx;
                         MemWr = 1'bx;
-                        //ALUCtrl = x
+                        ALUCtrl = 2'bxx;
                         MemToReg = 1'bx;
                         PCSel = 2'bxx;
                         AddSel = 1'bx;
@@ -155,7 +161,7 @@ module Controller
                 ALUSrc = 1'bx;
                 RegWr = 1'bx;
                 MemWr = 1'bx;
-                //ALUCtrl = x
+                ALUCtrl = 2'bxx;
                 MemToReg = 1'bx;
                 PCSel = 2'bxx;
                 AddSel = 1'bx;
