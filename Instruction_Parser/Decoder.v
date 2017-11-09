@@ -3,7 +3,8 @@
 module Decoder
 (
   input[31:0] Instr,
-  output[5:0] Op, Rs, Rd, Rt,
+  output[5:0] Op,
+  output[4:0] Rs, Rd, Rt,
   output[15:0] imm,
   output[25:0] addr
 );
