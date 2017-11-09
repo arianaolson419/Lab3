@@ -184,6 +184,7 @@ module adder_subtracter
     output[31:0] ans,
     output carryout,
     output overflow,
+    output reg zero,
     input[31:0] opA,
     input[31:0] opB,
     input[2:0] command
@@ -253,4 +254,13 @@ module adder_subtracter
   FullAdder4bit #50 adder6(ans[27:24], cout6, _6, opA[27:24], finalB[27:24], cout5);
   FullAdder4bit #50 adder7(ans[31:28], carryout, overflow, opA[31:28], finalB[31:28], cout6);
 
+  always @(*) begin
+    if (ans === 32'b0) begin
+      zero <= 1;
+    end
+
+    else begin
+      zero <= 0;
+    end
+  end
 endmodule

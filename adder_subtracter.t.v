@@ -8,9 +8,9 @@ module test32bitAdder();
     reg[31:0] b;
     reg[2:0] carryin;
     wire[31:0] ans;
-    wire carryout, overflow;
+    wire carryout, overflow, zero;
 
-    adder_subtracter adder0(ans[31:0], carryout, overflow, a[31:0], b[31:0], carryin[2:0]);
+    adder_subtracter adder0(ans[31:0], carryout, overflow, zero, a[31:0], b[31:0], carryin[2:0]);
 
     initial begin
        $display("Input A                          Input B                          Command | Output                         Flag  Carryout");
