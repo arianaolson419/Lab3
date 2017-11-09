@@ -1,4 +1,4 @@
-all: core alu regfile memory
+all: core alu regfile memory signextend
 
 # Core modules
 core: core.v core.t.v
@@ -45,3 +45,7 @@ register: register.t.v register.v
 # Memory modules
 memory: memory.v memory.t.v
 	iverilog -Wall -o memory memory.t.v
+
+# Concatenation modules
+signextend: signextend.v
+	iverilog -Wall -o signextend signextend.v 
