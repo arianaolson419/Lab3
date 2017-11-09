@@ -20,7 +20,7 @@ endmodule
 module mux32to1by1
 (
 output out,
-input[5:0] address,
+input[4:0] address,
 input[31:0] inputs
 );
 	assign out = inputs[address];
@@ -29,7 +29,7 @@ endmodule // mux32to1by1
 module mux32to1by32
 (
 output[31:0] out,
-input[5:0] address,
+input[4:0] address,
 input[31:0] input0, input1, input2, input3, input4, input5, input6, input7, input8,
 input[31:0] input9, input10, input11, input12, input13, input14, input15, input16,
 input[31:0] input17, input18, input19, input20, input21, input22, input23, input24,

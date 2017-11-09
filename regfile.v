@@ -15,9 +15,9 @@ module regfile
 output[31:0]    ReadData1,  // Contents of first register read
 output[31:0]    ReadData2,  // Contents of second register read
 input[31:0] WriteData,  // Contents to write to register
-input[5:0]  ReadRegister1,  // Address of first register to read
-input[5:0]  ReadRegister2,  // Address of second register to read
-input[5:0]  WriteRegister,  // Address of register to write
+input[4:0]  ReadRegister1,  // Address of first register to read
+input[4:0]  ReadRegister2,  // Address of second register to read
+input[4:0]  WriteRegister,  // Address of register to write
 input       RegWrite,   // Enable writing of register when High
 input       Clk     // Clock (Positive Edge Triggered)
 );

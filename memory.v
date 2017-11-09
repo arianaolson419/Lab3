@@ -19,7 +19,7 @@ module memory
 
     reg [width-1:0] memory [depth-1:0];
 
-    always @(posedge clk) begin
+    always @(negedge clk) begin
         if(writeEnable)
             memory[address] <= dataIn;
         dataOut <= memory[address];
