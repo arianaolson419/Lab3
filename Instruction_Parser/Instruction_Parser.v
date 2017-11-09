@@ -19,8 +19,8 @@ module Instruction_Parser
     wire[15:0] imm;
     wire[25:0] addr;
     Decoder dec(
-        .Instr(instr), .Op(Op), .Rs(Rs),
-        .Rd(Rd), .Rt(Rt), .imm(imm), .addr(addr)
+        .Instr(instr), .Op(Op), .funct(funct),
+        .Rs(Rs), .Rd(Rd), .Rt(Rt), .imm(imm), .addr(addr)
     );
 
 endmodule

@@ -5,6 +5,7 @@ module Decoder
     input[31:0] Instr,
     output[5:0] Op,
     output[4:0] Rs, Rd, Rt,
+    output[5:0] funct,
     output[15:0] imm,
     output[25:0] addr
 );
@@ -13,6 +14,7 @@ module Decoder
     assign Rs = Instr[25:21];
     assign Rt = Instr[20:16];
     assign Rd = Instr[15:11];
+    assign funct = Instr[5:0];
     assign imm = Instr[15:0];
     assign addr = Instr[25:0];
 endmodule
