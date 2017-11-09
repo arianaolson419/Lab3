@@ -2,7 +2,7 @@
 
 module Instruction_Parser
 (
-    input PC,
+    input[31:0] PC,
     // Instruction values
     output[5:0] Rs, Rd, Rt,
     output[15:0] imm,
