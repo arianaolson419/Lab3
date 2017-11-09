@@ -8,7 +8,7 @@ input		wrenable,
 input		clk
 );
 
-    always @(posedge clk) begin
+    always @(negedge clk) begin
         if(wrenable) begin
             q = d;
         end

@@ -10,9 +10,9 @@ module hw4testbenchharness();
   wire[31:0]	ReadData1;	// Data from first register read
   wire[31:0]	ReadData2;	// Data from second register read
   wire[31:0]	WriteData;	// Data to write to register
-  wire[5:0]	ReadRegister1;	// Address of first register to read
-  wire[5:0]	ReadRegister2;	// Address of second register to read
-  wire[5:0]	WriteRegister;  // Address of register to write
+  wire[4:0]	ReadRegister1;	// Address of first register to read
+  wire[4:0]	ReadRegister2;	// Address of second register to read
+  wire[4:0]	WriteRegister;  // Address of register to write
   wire		RegWrite;	// Enable writing of register when High
   wire		Clk;		// Clock (Positive Edge Triggered)
 
@@ -86,9 +86,9 @@ output reg 		dutpassed,	// Signal test result
 input[31:0]		ReadData1,
 input[31:0]		ReadData2,
 output reg[31:0]	WriteData,
-output reg[5:0]		ReadRegister1,
-output reg[5:0]		ReadRegister2,
-output reg[5:0]		WriteRegister,
+output reg[4:0]		ReadRegister1,
+output reg[4:0]		ReadRegister2,
+output reg[4:0]		WriteRegister,
 output reg		RegWrite,
 output reg		Clk
 );
