@@ -12,6 +12,7 @@ module ALUcontrolLUT
 (
 	output reg cout, //addsub only
 	output reg flag, //addsub only
+  output reg zero, // addsub only
 	output reg[31:0] finalsignal,
 	input [2:0]ALUcommand,
 	input [31:0]a,
@@ -29,8 +30,9 @@ wire [31:0]norin;
 wire [31:0]orin;
 wire adder_cout;
 wire adder_flag;
+wire adder_zero;
 
-adder_subtracter addsub0(addsub[31:0],adder_cout,adder_flag,a[31:0],b[31:0],ALUcommand[2:0]);
+adder_subtracter addsub0(addsub[31:0],adder_cout,adder_flag, adder_zero, a[31:0],b[31:0],ALUcommand[2:0]);
 xor_32bit xor0(xorin[31:0],a[31:0],b[31:0]);
 full_slt_32bit slt0(slt[31:0],a[31:0],b[31:0]);
 and_32bit and0(andin[31:0],a[31:0],b[31:0]);
@@ -44,14 +46,14 @@ or_32bit or0(orin[31:0],a[31:0],b[31:0]);
   	begin
     #5000
     case (ALUcommand)
-      3'b000:  begin finalsignal[31:0] = addsub[31:0]; cout = adder_cout; flag = adder_flag; end
-      3'b001:  begin finalsignal[31:0] = addsub[31:0]; cout = adder_cout; flag = adder_flag; end
+      3'b000:  begin finalsignal[31:0] = addsub[31:0]; cout = adder_cout; flag = adder_flag; zero = adder_zero; end
+      3'b001:  begin finalsignal[31:0] = addsub[31:0]; cout = adder_cout; flag = adder_flag; zero = adder_zero; end
       3'b010:  begin finalsignal[31:0] = xorin[31:0]; cout = 0; flag = 0; end // carryout and flag should be 0 for all non-add/sub operations
-      3'b011:  begin finalsignal[31:0] = slt[31:0]; cout = 0; flag = 0; end
-      3'b100:  begin finalsignal[31:0] = andin[31:0]; cout = 0; flag = 0; end
-      3'b101: begin finalsignal[31:0] = nandin[31:0]; cout = 0; flag = 0; end
-      3'b110:  begin finalsignal[31:0] = norin[31:0]; cout = 0; flag = 0; end
-      3'b111:   begin finalsignal[31:0] = orin[31:0]; cout = 0; flag = 0; end
+      3'b011:  begin finalsignal[31:0] = slt[31:0]; cout = 0; flag = 0; zero = 0; end
+      3'b100:  begin finalsignal[31:0] = andin[31:0]; cout = 0; flag = 0; zero = 0; end
+      3'b101: begin finalsignal[31:0] = nandin[31:0]; cout = 0; flag = 0; zero = 0; end
+      3'b110:  begin finalsignal[31:0] = norin[31:0]; cout = 0; flag = 0; zero = 0; end
+      3'b111:   begin finalsignal[31:0] = orin[31:0]; cout = 0; flag = 0; zero = 0; end
     endcase
     end
 endmodule
