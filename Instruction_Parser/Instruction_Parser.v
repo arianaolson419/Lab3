@@ -14,4 +14,13 @@ module Instruction_Parser
     wire[31:0] instr;
     Memory Instruction_Memory(.Addr(PC), .DataOut(instr));
 
+    wire[5:0] Op;
+    wire[4:0] Rs, Rd, Rt;
+    wire[15:0] imm;
+    wire[25:0] addr;
+    Decoder dec(
+        .Instr(instr), .Op(Op), .Rs(Rs),
+        .Rd(Rd), .Rt(Rt), .imm(imm), .addr(addr)
+    );
+
 endmodule
