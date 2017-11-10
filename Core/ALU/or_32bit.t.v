@@ -1,5 +1,5 @@
 `timescale 1 ns / 1 ps
-`include "or_32bit.v"
+`include "Core/ALU/or_32bit.v"
 
 module test32bitor();
 	reg[31:0] a;

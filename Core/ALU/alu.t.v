@@ -1,5 +1,5 @@
 `timescale 1 ns / 1 ps
-`include "alu.v"
+`include "Core/ALU/alu.v"
 
 module testALU32bit();
   reg[31:0] a;
@@ -12,6 +12,9 @@ module testALU32bit();
   ALUcontrolLUT alu(cout, flag, zero, finalALUsig[31:0], ALUcommand[2:0], a[31:0], b[31:0]);
 
   initial begin
+    $dumpfile("Core/ALU/alu.vcd");
+    $dumpvars();
+
     $display("ALU Command  Input A                          Input B                           | Output                           Flag  Carryout");
     //Test cases add
     ALUcommand = 3'b000;
@@ -503,5 +506,7 @@ module testALU32bit();
     if((finalALUsig != 32'b11111111111111111111111111111111) || (flag != 0) || (cout != 0)) begin
       $display("Test Case Failed");
     end
+
+    $finish();
   end
 endmodule
