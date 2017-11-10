@@ -1,51 +1,51 @@
 all: core alu regfile memory signextend
 
 # Core modules
-core: core.v core.t.v
-	iverilog -Wall -o core core.t.v
+core: Core/core.v Core/core.t.v
+	iverilog -Wall -o core Core/core.t.v
 
 # ALU modules
-alu: alu.v alu.t.v adder_subtracter and nand nor or slt xor
-	iverilog -Wall -o alu alu.t.v
+alu: Core/ALU/alu.v Core/ALU/alu.t.v adder_subtracter and nand nor or slt xor
+	iverilog -Wall -o alu Core/ALU/alu.t.v
 
-adder_subtracter: adder_subtracter.v adder_subtracter.t.v
-	iverilog -Wall -o adder_subtracter adder_subtracter.t.v
+adder_subtracter: Core/ALU/adder_subtracter.v Core/ALU/adder_subtracter.t.v
+	iverilog -Wall -o adder_subtracter Core/ALU/adder_subtracter.t.v
 
-and: and_32bit.v and_32bit.t.v
-	iverilog -Wall -o and and_32bit.t.v
+and: Core/ALU/and_32bit.v Core/ALU/and_32bit.t.v
+	iverilog -Wall -o and Core/ALU/and_32bit.t.v
 
-nand: nand_32bit.v nand_32bit.t.v
-	iverilog -Wall -o nand nand_32bit.t.v
+nand: Core/ALU/nand_32bit.v Core/ALU/nand_32bit.t.v
+	iverilog -Wall -o nand Core/ALU/nand_32bit.t.v
 
-nor: nor_32bit.v nor_32bit.t.v
-	iverilog -Wall -o nor nor_32bit.t.v
+nor: Core/ALU/nor_32bit.v Core/ALU/nor_32bit.t.v
+	iverilog -Wall -o nor Core/ALU/nor_32bit.t.v
 
-or: or_32bit.v or_32bit.t.v
-	iverilog -Wall -o or or_32bit.t.v
+or: Core/ALU/or_32bit.v Core/ALU/or_32bit.t.v
+	iverilog -Wall -o or Core/ALU/or_32bit.t.v
 
-slt: slt.v slt.t.v
-	iverilog -Wall -o slt slt.t.v
+slt: Core/ALU/slt.v Core/ALU/slt.t.v
+	iverilog -Wall -o slt Core/ALU/slt.t.v
 
-xor: xor_32bit.v xor_32bit.t.v
-	iverilog -Wall -o xor xor_32bit.t.v
+xor: Core/ALU/xor_32bit.v Core/ALU/xor_32bit.t.v
+	iverilog -Wall -o xor Core/ALU/xor_32bit.t.v
 
 # Regfile modules
-regfile: regfile.t.v regfile.v decoder mux register
-	iverilog -Wall -o regfile regfile.t.v
+regfile: Core/regfile.t.v Core/regfile.v decoder mux register
+	iverilog -Wall -o regfile Core/regfile.t.v
 
-decoder: decoders.t.v decoders.v
-	iverilog -Wall -o decoder decoders.t.v
+decoder: Core/decoders.t.v Core/decoders.v
+	iverilog -Wall -o decoder Core/decoders.t.v
 
-mux: multiplexer.t.v multiplexer.v
-	iverilog -Wall -o mux multiplexer.t.v
+mux: Core/multiplexer.t.v Core/multiplexer.v
+	iverilog -Wall -o mux Core/multiplexer.t.v
 
-register: register.t.v register.v
-	iverilog -Wall -o register register.t.v
+register: Core/register.t.v Core/register.v
+	iverilog -Wall -o register Core/register.t.v
 
 # Memory modules
-memory: memory.v memory.t.v
-	iverilog -Wall -o memory memory.t.v
+memory: Core/memory.v Core/memory.t.v
+	iverilog -Wall -o memory Core/memory.t.v
 
 # Concatenation modules
-signextend: signextend.v
-	iverilog -Wall -o signextend signextend.v 
+signextend: Core/signextend.v
+	iverilog -Wall -o signextend Core/signextend.v 
