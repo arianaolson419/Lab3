@@ -2,7 +2,7 @@
 // Unit test the decoder module
 //-------------------------------
 
-`include "decoders.v"
+`include "Core/decoders.v"
 
 module decoder1to32Test();
 	wire[31:0] out;
