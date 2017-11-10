@@ -3,6 +3,7 @@
 !/**/
 !*.*
 !makefile
+*.out
 
 # Ignore gtkwave files
 *.vcd
