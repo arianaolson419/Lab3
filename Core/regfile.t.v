@@ -3,7 +3,7 @@
 // or broken register files, and verifying that it correctly identifies each
 //------------------------------------------------------------------------------
 
-`include "regfile.v"
+`include "Core/regfile.v"
 
 module hw4testbenchharness();
 

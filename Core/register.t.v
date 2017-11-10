@@ -1,7 +1,7 @@
 //--------------------------
 // Test the register modules
 //--------------------------
-`include "register.v"
+`include "Core/register.v"
 
 // Unit tests for the single bit register module.
 module registerTest();

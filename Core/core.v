@@ -2,10 +2,10 @@
 The section of the CPU containing the register file, data memory, and ALU.
 */
 
-`include "alu.v"
-`include "memory.v"
-`include "regfile.v"
-`include "signextend.v"
+`include "Core/ALU/alu.v"
+`include "Core/memory.v"
+`include "Core/regfile.v"
+`include "Core/signextend.v"
 
 module core
 (
@@ -30,12 +30,12 @@ module core
 	// Register file write address
 	mux4input #(.width(5)) regwriteaddr (rd, rt, 5'd31, 5'bx, regdst, writeaddr);
 
-	wire[31:0] dataaout;
+	// wire[31:0] dataaout;
 	wire[31:0] databout;
 	wire[31:0] datain;
 
 	// Register file
-	regfile regfile (dataaout, databout, datain, rs, rt, writeaddr, RegWr, clk);
+	regfile regfile (Da, databout, datain, rs, rt, writeaddr, RegWr, clk);
 
 	// Sign extend
 
@@ -52,7 +52,7 @@ module core
 	wire overflow;
 	wire[31:0] finalsignal;
 
-	ALUcontrolLUT aluout (cout, overflow, is_zero, finalsignal, ALUcntrl, databout, operandb);
+	ALUcontrolLUT aluout (cout, overflow, is_zero, finalsignal, ALUcntrl, Da, operandb);
 
 	// Regfile write data mux
 	wire[31:0] memout;

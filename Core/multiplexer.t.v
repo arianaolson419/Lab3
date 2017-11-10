@@ -2,7 +2,7 @@
 // Test the multiplexer modules.
 //--------------------------------
 
-`include "multiplexer.v"
+`include "Core/multiplexer.v"
 
 // Test harness for multiplexer unit test modules.
 module multiplexerTestBenchHarness();

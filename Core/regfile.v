@@ -6,9 +6,9 @@
 //   1 synchronous, positive edge triggered write port
 //------------------------------------------------------------------------------
 
-`include "register.v"
-`include "multiplexer.v"
-`include "decoders.v"
+`include "Core/register.v"
+`include "Core/multiplexer.v"
+`include "Core/decoders.v"
 
 module regfile
 (
