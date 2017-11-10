@@ -1,5 +1,5 @@
 `timescale 1 ns / 1 ps
-`include "slt.v"
+`include "Core/ALU/slt.v"
 
 module test32bitslt();
 	reg[31:0] a;

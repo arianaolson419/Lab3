@@ -1,5 +1,5 @@
 `timescale 1 ns / 1 ps
-`include "xor_32bit.v"
+`include "Core/ALU/xor_32bit.v"
 
 module test32bitxor();
 	reg[31:0] a;

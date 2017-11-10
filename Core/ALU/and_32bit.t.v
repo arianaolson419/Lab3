@@ -1,5 +1,5 @@
 `timescale 1 ns / 1 ps
-`include "and_32bit.v"
+`include "Core/ALU/and_32bit.v"
 
 module test32bitand();
 	reg[31:0] a;

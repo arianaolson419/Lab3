@@ -1,5 +1,5 @@
 `timescale 1 ns / 1 ps
-`include "nor_32bit.v"
+`include "Core/ALU/nor_32bit.v"
 
 module test32bitnor();
 	reg[31:0] a;
