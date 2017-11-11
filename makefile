@@ -1,8 +1,8 @@
 all: core alu regfile memory signextend
 
 # Core modules
-core: Core/core.v Core/core.t.v
-	iverilog -Wall -o core Core/core.t.v
+core: Core/Core.v Core/Core.t.v
+	iverilog -Wall -o core Core/Core.t.v
 
 # ALU modules
 alu: Core/ALU/alu.v Core/ALU/alu.t.v adder_subtracter and nand nor or slt xor
