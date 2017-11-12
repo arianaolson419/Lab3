@@ -14,7 +14,12 @@ ver () {
   cd - > /dev/null
 }
 
-
-cat $2 > mem.dat
-ver $1
-rm mem.dat
+d=${PWD##*/}
+if [ "$d" = "Lab3" ]
+then
+    cat $2 > mem.dat
+    ver $1
+    rm mem.dat
+else
+    echo "ERROR: This must be run in top-level directory"
+fi
