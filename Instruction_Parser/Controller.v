@@ -24,10 +24,10 @@ module Controller
     localparam SUB_f = 6'h22;
 
     // ALU Control mapping
-    localparam alu_add = 2'd0;
-    localparam alu_sub = 2'd1;
-    localparam alu_xor = 2'd2;
-    localparam alu_slt = 2'd4;
+    localparam alu_add = 3'd0;
+    localparam alu_sub = 3'd1;
+    localparam alu_xor = 3'd2;
+    localparam alu_slt = 3'd4;
 
     always @ * begin
         case (Op)

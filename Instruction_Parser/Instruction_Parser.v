@@ -1,6 +1,8 @@
 // Instruction Parser parses the relevant data and control signals from the instruction.
 
 `include "Memory.v"
+`include "Decoder.v"
+`include "Controller.v"
 
 module Instruction_Parser
 (
@@ -9,18 +11,28 @@ module Instruction_Parser
     output[4:0] Rs, Rd, Rt,
     output[15:0] imm,
     output[25:0] addr,
-    output ALUCtrl, MemToReg, MemWr, ALUSrc, PCSel, RegDst, RegWr, AddSel
+    output[2:0] ALUCtrl,
+    output[1:0] MemToReg, RegDst, PCSel, AddSel,
+    output      MemWr, ALUSrc, RegWr
 );
     wire[31:0] instr;
-    Memory Instruction_Memory(.Addr(PC), .DataOut(instr));
+    Memory Instruction_Memory(.Addr(PC[9:0]), .DataOut(instr));
 
-    wire[5:0] Op;
+    wire[5:0] Op, funct;
     wire[4:0] Rs, Rd, Rt;
     wire[15:0] imm;
     wire[25:0] addr;
     Decoder dec(
         .Instr(instr), .Op(Op), .funct(funct),
         .Rs(Rs), .Rd(Rd), .Rt(Rt), .imm(imm), .addr(addr)
+    );
+
+    Controller ctrlr(
+        .Op(Op), .funct(funct),
+        .ALUCtrl(ALUCtrl),
+        .MemToReg(MemToReg), .RegDst(RegDst),
+        .PCSel(PCSel), .AddSel(AddSel),
+        .MemWr(MemWr), .ALUSrc(ALUSrc), .RegWr(RegWr)
     );
 
 endmodule
