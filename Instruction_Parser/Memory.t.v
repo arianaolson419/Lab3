@@ -14,7 +14,7 @@ module testMemory();
     initial begin
         // Before memory is initialized, all addresses should return x's
         Addr = 0;
-        if (DataOut == 32'bxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx) begin
+        if (DataOut == 32'h00_00) begin
             $display("Test 1 Passed");
         end
         else begin
