@@ -55,7 +55,7 @@ module Controller
                 RegDst = 1'bx;
                 ALUSrc = 1'bx;
                 RegWr = 0;
-                MemWr = 1;
+                MemWr = 0;
                 ALUCtrl = 2'bxx;
                 MemToReg = 1'bx;
                 PCSel = 0;
