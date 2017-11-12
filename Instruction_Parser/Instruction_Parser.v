@@ -4,7 +4,7 @@
 `include "Decoder.v"
 `include "Controller.v"
 
-module Instruction_Parser
+module InstructionParser
 (
     input[31:0] PC,
     // Instruction values
@@ -16,7 +16,7 @@ module Instruction_Parser
     output      MemWr, ALUSrc, RegWr, AddSel
 );
     wire[31:0] instr;
-    Memory Instruction_Memory(.Addr(PC[9:0]), .DataOut(instr));
+    Memory InstructionMemory(.Addr(PC[9:0]), .DataOut(instr));
 
     wire[5:0] Op, funct;
     wire[4:0] Rs, Rd, Rt;
