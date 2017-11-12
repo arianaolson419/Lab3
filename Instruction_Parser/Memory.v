@@ -17,7 +17,7 @@ module Memory
     end
 
     // This file will be loaded dynamically. Do not edit mem.dat directly.
-    initial $readmemh("../mem.dat", mem);
+    initial $readmemh("mem.dat", mem);
 
     assign DataOut = mem[Addr];
 endmodule
