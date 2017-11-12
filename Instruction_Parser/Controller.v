@@ -42,22 +42,22 @@ module Controller
                 AddSel = 1'bx;
             end
             SW: begin
-                RegDst = 1'bx;
+                RegDst = 2'bxx;
                 ALUSrc = 1;
                 RegWr = 0;
                 MemWr = 1;
                 ALUCtrl = alu_add;
-                MemToReg = 1'bx;
+                MemToReg = 2'bxx;
                 PCSel = 1;
                 AddSel = 1'bx;
             end
             J: begin
-                RegDst = 1'bx;
+                RegDst = 2'bxx;
                 ALUSrc = 1'bx;
                 RegWr = 0;
                 MemWr = 0;
-                ALUCtrl = 2'bxx;
-                MemToReg = 1'bx;
+                ALUCtrl = 3'bxxx;
+                MemToReg = 2'bxx;
                 PCSel = 0;
                 AddSel = 0;
             end
@@ -66,7 +66,7 @@ module Controller
                 ALUSrc = 1'bx;
                 RegWr = 1;
                 MemWr = 0;
-                ALUCtrl = 2'bxx;
+                ALUCtrl = 3'bxxx;
                 MemToReg = 2'd2;
                 PCSel = 0;
                 AddSel = 0;
@@ -109,8 +109,8 @@ module Controller
                         ALUSrc = 1'bx;
                         RegWr = 0;
                         MemWr = 0;
-                        ALUCtrl = 2'bxx;
-                        MemToReg = 1'bx;
+                        ALUCtrl = 3'bxxx;
+                        MemToReg = 2'bxx;
                         PCSel = 2'd2;
                         AddSel = 0;
                     end
@@ -149,8 +149,8 @@ module Controller
                         ALUSrc = 1'bx;
                         RegWr = 1'bx;
                         MemWr = 1'bx;
-                        ALUCtrl = 2'bxx;
-                        MemToReg = 1'bx;
+                        ALUCtrl = 3'bxxx;
+                        MemToReg = 2'bxx;
                         PCSel = 2'bxx;
                         AddSel = 1'bx;
                     end
@@ -161,8 +161,8 @@ module Controller
                 ALUSrc = 1'bx;
                 RegWr = 1'bx;
                 MemWr = 1'bx;
-                ALUCtrl = 2'bxx;
-                MemToReg = 1'bx;
+                ALUCtrl = 3'bxxx;
+                MemToReg = 2'bxx;
                 PCSel = 2'bxx;
                 AddSel = 1'bx;
             end
