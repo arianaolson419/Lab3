@@ -145,7 +145,7 @@ module mux32to32by1Test(
 
 		// Test Case 1:
 		// Ensure that the value chosen by the mux matches the value at the given address
-		address = 4'd20;
+		address = 5'd20;
 		input0 = 32'd0; input1 = 32'd1; input2 = 32'd2; input3 = 32'd3; input4 = 32'd4;
 		input5 = 32'd5; input6 = 32'd6; input7 = 32'd7; input8 = 32'd8; input9 = 32'd9;
 		input10 = 32'd10; input11 = 32'd11; input12 = 32'd12; input13 = 32'd13; input14 = 32'd14;
