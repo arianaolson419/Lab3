@@ -4,8 +4,8 @@ module Controller
 (
     input[5:0]      Op, funct,
     output reg[2:0] ALUCtrl,
-    output reg[1:0] MemToReg, RegDst, PCSel, AddSel,
-    output reg      MemWr, ALUSrc, RegWr
+    output reg[1:0] MemToReg, RegDst, PCSel,
+    output reg      MemWr, ALUSrc, RegWr, AddSel
 );
 
     // Opcodes
@@ -69,7 +69,7 @@ module Controller
                 ALUCtrl = 2'bxx;
                 MemToReg = 2'd2;
                 PCSel = 0;
-                AddSel = 1;
+                AddSel = 0;
             end
             BNE: begin
                 RegDst = 2'bxx;
@@ -79,7 +79,7 @@ module Controller
                 ALUCtrl = alu_sub;
                 MemToReg = 2'bxx;
                 PCSel = 1;
-                AddSel = 2'd2;
+                AddSel = 1;
             end
             XORI: begin
                 RegDst = 1;

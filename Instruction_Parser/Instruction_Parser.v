@@ -12,8 +12,8 @@ module Instruction_Parser
     output[15:0] imm,
     output[25:0] addr,
     output[2:0] ALUCtrl,
-    output[1:0] MemToReg, RegDst, PCSel, AddSel,
-    output      MemWr, ALUSrc, RegWr
+    output[1:0] MemToReg, RegDst, PCSel,
+    output      MemWr, ALUSrc, RegWr, AddSel
 );
     wire[31:0] instr;
     Memory Instruction_Memory(.Addr(PC[9:0]), .DataOut(instr));
