@@ -16,7 +16,7 @@ module InstructionParser
     output      MemWr, ALUSrc, RegWr, AddSel
 );
     wire[31:0] instr;
-    InstructionMemory im(.Addr(PC[9:0]), .DataOut(instr));
+    Memory im(.Addr(PC[9:0]), .DataOut(instr));
 
     wire[5:0] Op, funct;
     wire[4:0] Rs, Rd, Rt;
