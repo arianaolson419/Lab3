@@ -25,6 +25,6 @@ module memory
         dataOut <= memory[address];
     end
 
-    initial $readmemh("file.dat", memory);
+    initial $readmemh("mem.dat", memory);
 
 endmodule
