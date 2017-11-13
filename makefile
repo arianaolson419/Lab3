@@ -58,8 +58,8 @@ regfile: Core/regfile.t.v Core/regfile.v decoder mux register
 decoder: Core/decoders.t.v Core/decoders.v
 	iverilog -Wall -o Core/decoder Core/decoders.t.v
 
-mux: Core/multiplexer.t.v Core/multiplexer.v
-	iverilog -Wall -o Core/mux Core/multiplexer.t.v
+# mux: Core/multiplexer.t.v Core/multiplexer.v
+# 	iverilog -Wall -o Core/mux Core/multiplexer.t.v
 
 register: Core/register.t.v Core/register.v
 	iverilog -Wall -o Core/register Core/register.t.v
