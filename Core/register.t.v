@@ -2,45 +2,8 @@
 // Test the register modules
 //--------------------------
 `include "Core/register.v"
-
-// Unit tests for the single bit register module.
-module registerTest();
-	wire q;
-	reg d;
-	reg wrenable;
-	reg clk;
-
-	register DUT (q, d, wrenable, clk);
-
-	initial begin
-		// Test Case 1:
-		// Write a 1 to the register.
-		d = 1; wrenable = 1;
-		#5 clk = 0;
-		#5 clk = 1;
-		if (q != d) begin
-			$display("Register Test Case 1 failed");
-		end
-
-		// Test Case 2:
-		// Write a 0 to the register.
-		d = 0; wrenable = 1;
-		#5 clk = 0;
-		#5 clk = 1;
-		if (q != d) begin
-			$display("Register Test Case 2 failed");
-		end
-
-		// Test Case 3:
-		// Write not enabled, the data written should not match the output.
-		d = 1; wrenable = 0;
-		#5 clk = 0;
-		#5 clk = 1;
-		if (q == d) begin
-			$display("Register Test Case 3 failed");
-		end
-	end 
-endmodule // registerTest
+`include "Core/register32.v"
+`include "Core/register32zero.v"
 
 // Unit tests for the 32 bit register module.
 module register32Test();
@@ -116,6 +79,3 @@ module register32zeroTest();
 		end
 	end
 endmodule // register32zeroTest
-
-
-
