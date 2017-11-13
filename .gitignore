@@ -7,3 +7,6 @@
 
 # Ignore gtkwave files
 *.vcd
+
+# Ignore temporary memory file
+mem.dat
