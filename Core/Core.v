@@ -22,37 +22,35 @@ module Core
     output isZero
 );
 
+    // Regfile wires
     wire[4:0] WriteAddr;
-
-    // Register file write address
-    mux4input #(.width(5)) RegWriteAddr (Rd, Rt, 5'd31, 5'bx, RegDst, WriteAddr);
-
-    // wire[31:0] dataaout;
     wire[31:0] databout;
     wire[31:0] datain;
-
-    // Register file
-    regfile regfile (Da, databout, datain, Rs, Rt, WriteAddr, RegWr, CLK);
-
-    // Sign extend
-
-    wire[31:0] signextimm;
-    signextend extend (imm, signextimm);
-
     // ALU operand 2 mux
     wire[31:0] operandb;
-
-    mux4input #(.width(32)) aluinput (databout, signextimm, 32'bx, 32'bx, {1'b0, ALUSrc}, operandb);
-
+    // Sign extend
+    wire[31:0] signextimm;
     // ALU
     wire cout;
     wire overflow;
     wire[31:0] finalsignal;
+    // Regfile write data mux
+    wire[31:0] memout;
+
+    // Register file write address
+    mux4input #(.width(5)) RegWriteAddr (Rd, Rt, 5'd31, 5'bx, RegDst, WriteAddr);
+
+
+    // Register file
+    regfile regfile (Da, databout, datain, Rs, Rt, WriteAddr, RegWr, CLK);
+
+    signextend extend (imm, signextimm);
+
+    mux4input #(.width(32)) aluinput (databout, signextimm, 32'bx, 32'bx, {1'b0, ALUSrc}, operandb);
+
 
     ALUcontrolLUT aluout (cout, overflow, isZero, finalsignal, ALUCntrl, Da, operandb);
 
-    // Regfile write data mux
-    wire[31:0] memout;
 
     mux4input #(.width(32)) regdatamux (finalsignal, memout, addedPC, 32'bx, MemToReg, datain);
 
