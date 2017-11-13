@@ -1,8 +1,9 @@
 // PC_Calc Calculates the next program counter
-`include "addr_concat.v"
-`include "imm_concat.v"
-`include "is_zero_and.v"
-`include "multiplexer.v"
+
+`include "PC_Calc/addr_concat.v"
+`include "PC_Calc/imm_concat.v"
+`include "PC_Calc/is_zero_and.v"
+`include "PC_Calc/multiplexer.v"
 
 module PC_Calc
 (
@@ -21,10 +22,15 @@ module PC_Calc
 	wire[31:0] extendedImm;
 	immConcat iconcat(extendedImm[31:0], imm[15:0]);
 
+<<<<<<< HEAD
 	wire[31:0] immZeroed;
 	wire nIsZero;
 	not inviszero(nIsZero, isZero);
 	isZeroAnd immzeroed(immZeroed[31:0], extendedImm[31:0], nIsZero);
+=======
+	wire immZeroed;
+
+>>>>>>> 94d7a19bfad07e3066c192ab5f150bf55014b862
 
 	wire[31:0] immZeroed4;
 	assign immZeroed4 = immZeroed + 4;

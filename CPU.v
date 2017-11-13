@@ -15,11 +15,13 @@ module CPU
 
     DFF #(32) pc(.trigger(CLK), .enable(1), .q(new_PC), .d(PC));
 
-    wire[5:0] Rs, Rd, Rt;
+    wire[4:0]  Rs, Rd, Rt;
     wire[15:0] imm;
     wire[25:0] addr;
-    wire ALUCtrl, MemToReg, MemWr, ALUSrc, PCSel, RegDst, RegWr, AddSel;
-    Instruction_Parser ip(
+    wire[2:0]  ALUCtrl;
+    wire[1:0]  MemToReg, RegDst, PCSel;
+    wire       MemWr, ALUSrc, RegWr, AddSel;
+    InstructionParser ip(
         .PC(PC),
         .Rs(Rs), .Rd(Rd), .Rt(Rt),
         .imm(imm), .addr(addr),
