@@ -4,5 +4,5 @@ module addrConcat
 	input[31:0] pc,
 	input[25:0] jumpAddr
 );
-	assign out = {pc[31:28], jumpAddr, 2'b00};
+	assign out = {pc[31:28], jumpAddr[25:0], 2'b00};
 endmodule

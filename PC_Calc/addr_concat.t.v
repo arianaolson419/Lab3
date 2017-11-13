@@ -14,5 +14,8 @@ module testConcat();
 		pc = 32'b11110000000000000000000000000000;
 		jumpAddr = 26'b11111111111111111111111111; #100
 		$display("%b %b %b", pc[31:0], jumpAddr[25:0], ans[31:0]);
+		pc = 32'b00000000000000000000000000000000;
+		jumpAddr = 26'b11111111111111111111111111; #100
+		$display("%b %b %b", pc[31:0], jumpAddr[25:0], ans[31:0]);
 	end
 endmodule
