@@ -3,7 +3,7 @@
 `include "PC_Calc/addr_concat.v"
 `include "PC_Calc/imm_concat.v"
 `include "PC_Calc/is_zero_and.v"
-`include "PC_Calc/multiplexer.v"
+`include "submodules/multiplexer.v"
 
 module PC_Calc
 (
@@ -31,12 +31,12 @@ module PC_Calc
 	assign immZeroed4 = immZeroed + 4;
 
 	wire[31:0] addedSel;
-	mux2input m2(32'd4, immZeroed4[31:0], AddSel, addedSel[31:0]);
+	mux2by32input m2(32'd4, immZeroed4[31:0], AddSel, addedSel[31:0]);
 
 	assign added_PC = addedSel + old_PC;
 
 	wire[31:0] jump;
 	addrConcat addrconcat(jump[31:0], added_PC[31:0], addr[25:0]);
 
-	mux4input m4(jump[31:0], added_PC[31:0], Da[31:0], 32'd0, PCSel[1:0], new_PC[31:0]);
+	mux4by32input m4(jump[31:0], added_PC[31:0], Da[31:0], 32'd0, PCSel[1:0], new_PC[31:0]);
 endmodule

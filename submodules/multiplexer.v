@@ -1,4 +1,4 @@
-module mux2input
+module mux2by32input
 #(
 	parameter width = 32
 )
@@ -13,7 +13,7 @@ output[width-1:0] out
 	assign out = mux[address];
 endmodule
 
-module mux4input
+module mux4by32input
 #(
 	parameter width = 32
 )
@@ -30,11 +30,29 @@ output[width-1:0] out
 	assign out = mux[address];
 endmodule
 
+// Inputs are 6 by 1 addresses
+module mux4input
+#(
+	parameter width = 6
+)
+(
+input[width-1:0] input0, input1, input2, input3,
+input[1:0] address,
+output[width-1:0] out
+);
+	wire[5:0] mux [width-1:0];
+	assign mux[0] = input0[width-1:0];
+	assign mux[1] = input1[width-1:0];
+	assign mux[2] = input2[width-1:0];
+	assign mux[3] = input3[width-1:0];
+	assign out = mux[address];
+endmodule
+
 // A 32:1 multiplexer.
 module mux32to1by1
 (
 output out,
-input[5:0] address,
+input[4:0] address,
 input[31:0] inputs
 );
 	assign out = inputs[address];
@@ -43,7 +61,7 @@ endmodule // mux32to1by1
 module mux32to1by32
 (
 output[31:0] out,
-input[5:0] address,
+input[4:0] address,
 input[31:0] input0, input1, input2, input3, input4, input5, input6, input7, input8,
 input[31:0] input9, input10, input11, input12, input13, input14, input15, input16,
 input[31:0] input17, input18, input19, input20, input21, input22, input23, input24,
@@ -85,4 +103,4 @@ input[31:0] input25, input26, input27, input28, input29, input30, input31
 	assign mux[31] = input31;
 	assign out = mux[address];
 
-endmodule // mux32to1by32S
+endmodule // mux32to1by32

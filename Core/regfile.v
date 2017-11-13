@@ -7,7 +7,7 @@
 //------------------------------------------------------------------------------
 
 `include "Core/register.v"
-`include "Core/multiplexer.v"
+`include "submodules/multiplexer.v"
 `include "Core/decoders.v"
 
 module regfile
