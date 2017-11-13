@@ -1,8 +1,8 @@
-all: core alu regfile memory signextend
+all: core alu regfile memory signextend CPU
 
 ### CPU Module
 CPU: CPU.v CPU.t.v
-	iverilog -Wall -o CPU CPU.t.v
+	iverilog -Wall -o CPU.out CPU.t.v
 
 ### PC_Calc Modules
 # PC_Calc top level module
