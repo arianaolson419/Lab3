@@ -1,6 +1,6 @@
 // PC_Calc Calculates the next program counter
-`include "addr_concat.v"
-`include "imm_concat.v"
+`include "PC_Calc/addr_concat.v"
+`include "PC_Calc/imm_concat.v"
 
 module PC_Calc
 (
@@ -16,7 +16,7 @@ module PC_Calc
 	immConcat iconcat(extendedImm[31:0], imm[15:0]);
 
 	wire immZeroed;
-	
+
 
 
 endmodule
