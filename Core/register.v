@@ -36,6 +36,7 @@ input clk
     register r8 (q[8], d[8], wrenable, clk);
     register r9 (q[9], d[9], wrenable, clk);
     register r10 (q[10], d[10], wrenable, clk);
+    register r11 (q[11], d[11], wrenable, clk);
     register r12 (q[12], d[12], wrenable, clk);
     register r13 (q[13], d[13], wrenable, clk);
     register r14 (q[14], d[14], wrenable, clk);
@@ -54,6 +55,7 @@ input clk
     register r27 (q[27], d[27], wrenable, clk);
     register r28 (q[28], d[28], wrenable, clk);
     register r29 (q[29], d[29], wrenable, clk);
+    register r30 (q[30], d[30], wrenable, clk);
     register r31 (q[31], d[31], wrenable, clk);
 endmodule // register32
 
