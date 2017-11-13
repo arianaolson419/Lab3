@@ -102,7 +102,7 @@ input       Clk     // Clock (Positive Edge Triggered)
     register22out, register23out, register24out, register25out, register26out,
     register27out, register28out, register29out, register30out, register31out);
 
-  // The multiplexer choosing the data associated with ReadREegister2.
+  // The multiplexer choosing the data associated with ReadRegister2.
   mux32to1by32 mux2 (ReadData2, ReadRegister2, register0out, register1out,
     register2out, register3out, register4out, register5out, register6out,
     register7out, register8out, register9out, register10out, register11out,
