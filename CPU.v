@@ -34,9 +34,10 @@ module CPU
     wire[31:0] Da;
     wire isZero;
     Core c(
-        .Rs(Rs), .Rd(Rd), .Rt(Rt),
+        .CLK(CLK), .Rd(Rd), .Rt(Rt), .Rs(Rs), .imm(imm), .addedPC(new_PC),
         .RegDst(RegDst), .RegWr(RegWr), .MemWr(MemWr),
-        .ALUSrc(ALUSrc), .MemToReg(MemToReg), .Da(Da), .isZero(isZero)
+        .ALUSrc(ALUSrc), .MemToReg(MemToReg), .ALUCntrl(ALUCtrl),
+        .Da(Da), .isZero(isZero)
     );
 
     PC_Calc pc_calc(
