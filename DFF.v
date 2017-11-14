@@ -4,12 +4,12 @@ module DFF #( parameter W = 1 )
 (
     input trigger,
     input enable,
-    input      [W-1:0] d,
-    output reg [W-1:0] q
+    input      [W-1:0] in,
+    output reg [W-1:0] out
 );
     always @(posedge trigger) begin
         if(enable) begin
-            q <= d;
+            out <= in;
         end
     end
 endmodule
