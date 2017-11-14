@@ -15,7 +15,7 @@ module CPU
     reg en;
 
     initial begin
-        en = 0; #1;
+        en = 0; #1000;
         en = 1;
     end
 
