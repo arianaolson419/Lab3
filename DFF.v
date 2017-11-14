@@ -12,7 +12,6 @@ module DFF #( parameter W = 1 )
             out <= in;
         end
         else begin
-            $display("got here");
             out <= 0;
         end
     end
