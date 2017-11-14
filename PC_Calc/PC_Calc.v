@@ -14,9 +14,7 @@ module PC_Calc
     input[25:0] addr,
     input[15:0] imm,
     output[31:0] added_PC,
-    output[31:0] new_PC,
-    output[31:0] addedSel,
-    output[31:0] jump
+    output[31:0] new_PC
 );
 	wire[31:0] extendedImm;
 	immConcat iconcat(extendedImm[31:0], imm[15:0]);
