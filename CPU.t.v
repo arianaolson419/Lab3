@@ -12,11 +12,14 @@ module testCPU ();
 
 	initial begin
 		$dumpfile("CPU.vcd");
-		$dumpvars;
+		$dumpvars(0,testCPU);
 		#1
-		CLK = 1; #2
+		CLK = 1; #1000
+		CLK = 0; #1000
+		CLK = 1; #1000
+		$display("hi");
 		$display("Program counter: %h", dut.PC);
-		// $display("DFF: %b", dut.pc);
+		
 
 		#6000
 		CLK = 0;
