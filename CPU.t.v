@@ -11,8 +11,10 @@ module testCPU ();
 	initial CLK = 0;
 
 	initial begin
-		#6000
-		CLK = 1;
+		$dumpfile("CPU.vcd");
+		$dumpvars;
+		#1
+		CLK = 1; #2
 		$display("Program counter: %h", dut.PC);
 
 		#6000

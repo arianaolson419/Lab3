@@ -11,12 +11,15 @@ module CPU
     input CLK
 );
     // PC is the current program counter, new_PC is what it's next value will be.
-    reg[31:0] PC;
+    wire[31:0] PC, new_PC;
+    reg en;
 
-    initial PC = 0;
-    wire[31:0]new_PC;
+    initial begin
+        en = 0; #1;
+        en = 1;
+    end
 
-    DFF #(32) pc(.trigger(CLK), .enable(1), .out(PC), .in(new_PC));
+    DFF #(32) pc(.trigger(CLK), .enable(en), .out(PC), .in(new_PC));
 
     wire[4:0]  Rs, Rd, Rt;
     wire[15:0] imm;
