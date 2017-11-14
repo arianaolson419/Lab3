@@ -15,7 +15,7 @@ module testPCCalc();
     wire[31:0] addedSel;
     wire[31:0] jump;
 	
-	PC_Calc pccalc(old_PC[31:0], isZero, PCSel[1:0], AddSel, Da[31:0], addr[25:0], imm[15:0], added_PC[31:0], new_PC[31:0], addedSel[31:0], jump[31:0]);
+	PC_Calc pccalc(old_PC[31:0], isZero, PCSel[1:0], AddSel, Da[31:0], addr[25:0], imm[15:0], added_PC[31:0], new_PC[31:0]);
 	initial begin
 		$display("added_PC                         | new_PC");
 		old_PC = 32'd4;
