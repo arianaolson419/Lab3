@@ -15,7 +15,7 @@ module CPU
     reg en;
 
     initial begin
-        en = 0; #1;
+        en = 0; #1000;
         en = 1;
     end
 
@@ -39,8 +39,9 @@ module CPU
 
     wire[31:0] Da;
     wire isZero;
+    wire[31:0] added_PC;
     Core c(
-        .CLK(CLK), .Rd(Rd), .Rt(Rt), .Rs(Rs), .imm(imm), .addedPC(new_PC),
+        .CLK(CLK), .Rd(Rd), .Rt(Rt), .Rs(Rs), .imm(imm), .addedPC(added_PC),
         .RegDst(RegDst), .RegWr(RegWr), .MemWr(MemWr),
         .ALUSrc(ALUSrc), .MemToReg(MemToReg), .ALUCntrl(ALUCtrl),
         .Da(Da), .isZero(isZero)
@@ -48,7 +49,7 @@ module CPU
 
     PC_Calc pc_calc(
         .old_PC(PC), .isZero(isZero), .PCSel(PCSel), .AddSel(AddSel),
-        .Da(Da), .addr(addr), .imm(imm), .new_PC(new_PC)
+        .Da(Da), .addr(addr), .imm(imm), .added_PC(added_PC), .new_PC(new_PC)
     );
 
 
