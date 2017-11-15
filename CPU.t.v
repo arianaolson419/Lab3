@@ -17,10 +17,22 @@ module testCPU ();
 
 		mem[0] = 32'h2008_0001;
 		mem[1] = 32'h2008_0002;
-		$writememh("mem.dat", mem);
+		// $writememh("mem.dat", mem);
 		#6000;
 		$display("Program counter: %h", dut.PC);
 		CLK = 1; #6000
+		$display("Program counter: %h", dut.PC);
+		CLK = 0; #6000; CLK=1; #6000;
+		$display("Program counter: %h", dut.PC);
+		CLK = 0; #6000; CLK=1; #6000;
+		$display("Program counter: %h", dut.PC);
+		CLK = 0; #6000; CLK=1; #6000;
+		$display("Program counter: %h", dut.PC);
+		CLK = 0; #6000; CLK=1; #6000;
+		$display("Program counter: %h", dut.PC);
+		CLK = 0; #6000; CLK=1; #6000;
+		$display("Program counter: %h", dut.PC);
+		CLK = 0; #6000; CLK=1; #6000;
 		$display("Program counter: %h", dut.PC);
 		CLK = 0; #6000; CLK=1; #6000;
 		$display("Program counter: %h", dut.PC);
