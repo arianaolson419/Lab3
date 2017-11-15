@@ -27,7 +27,6 @@ module testCPU ();
 		$display("$t0: %h", dut.c.regfile.register9out);
 		$display("Program counter: %h", dut.PC);
 
-
 		CLK = 1; #6000; CLK = 0; #6000
 
 		CLK = 1; #6000; CLK = 0; #6000
