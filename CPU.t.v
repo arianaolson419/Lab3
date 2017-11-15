@@ -41,6 +41,13 @@ module testCPU ();
 		$display("$t1: %h", dut.c.regfile.register9out);
 		$display("Program counter: %h", dut.PC);
 
+		// xori $t3, $t1, 7
+		mem[4] = 32'h392b0007;
+		$writememh("mem.dat", mem);
+		CLK = 1; #12000; CLK = 0; #12000;
+		$display("$t3: %h", dut.c.regfile.register11out);
+		$display("Program counter: %h", dut.PC);
+
 		//lw $t2, 0($zero)
 		//load the value of memory at $zero into #t2
 		// mem[4] = 32'h8c0a0000;
