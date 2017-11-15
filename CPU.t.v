@@ -9,32 +9,22 @@ module testCPU ();
 
 	CPU dut (.CLK(CLK));
 
-	initial CLK = 0;
-
 	initial begin
 		$dumpfile("CPU.vcd");
 		$dumpvars;
 
-		mem[0] = 32'h2008_0001;
-		mem[1] = 32'h2008_0002;
-		// $writememh("mem.dat", mem);
-		#6000;
+		//add $t1, $zero, $zero
+		mem[0] = 32'h00004820;
+		$writememh("mem.dat", mem);
+		CLK = 1; #6000; CLK = 0; #6000
+		$display("$t0: %h", dut.c.regfile.register9out);
 		$display("Program counter: %h", dut.PC);
-		CLK = 1; #6000
-		$display("Program counter: %h", dut.PC);
-		CLK = 0; #6000; CLK=1; #6000;
-		$display("Program counter: %h", dut.PC);
-		CLK = 0; #6000; CLK=1; #6000;
-		$display("Program counter: %h", dut.PC);
-		CLK = 0; #6000; CLK=1; #6000;
-		$display("Program counter: %h", dut.PC);
-		CLK = 0; #6000; CLK=1; #6000;
-		$display("Program counter: %h", dut.PC);
-		CLK = 0; #6000; CLK=1; #6000;
-		$display("Program counter: %h", dut.PC);
-		CLK = 0; #6000; CLK=1; #6000;
-		$display("Program counter: %h", dut.PC);
-		CLK = 0; #6000; CLK=1; #6000;
+
+		//addi $t1, $zero, 2
+		mem[1] = 32'h02009002;
+		$writememh("mem.dat", mem);
+		CLK = 1; #6000; CLK = 0; #6000
+		$display("$t0: %h", dut.c.regfile.register9out);
 		$display("Program counter: %h", dut.PC);
 	end
 
