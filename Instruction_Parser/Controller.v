@@ -39,7 +39,7 @@ module Controller
                 ALUCtrl = alu_add;
                 MemToReg = 1;
                 PCSel = 1;
-                AddSel = 1'bx;
+                AddSel = 0;
             end
             SW: begin
                 RegDst = 2'bxx;
@@ -49,7 +49,7 @@ module Controller
                 ALUCtrl = alu_add;
                 MemToReg = 2'bxx;
                 PCSel = 1;
-                AddSel = 1'bx;
+                AddSel = 0;
             end
             J: begin
                 RegDst = 2'bxx;
