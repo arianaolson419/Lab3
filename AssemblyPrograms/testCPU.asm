@@ -1,17 +1,17 @@
-# Test commands for the CPU
-testaddi:
-addi $t0, $zero, 1
-addi $t1, $zero, 10
-j testslt
+main:
+addi $t3, $zero, 0
+addi $t4, $zero, 4
 
-addi $t1, $zero, 4
+whileloop:
+bne $t3, $t4, branchtaken
 
-testslt:
-#sw $t0, 0($sp)
-addi $t1, $zero, 4
+saveres:
+addi $t5, $t3, 0
 j end
+
+branchtaken:
+addi $t3, $t3, 1
+j whileloop
 
 end:
 j end
-
-.data
