@@ -27,7 +27,7 @@ module Controller
     localparam alu_add = 3'd0;
     localparam alu_sub = 3'd1;
     localparam alu_xor = 3'd2;
-    localparam alu_slt = 3'd4;
+    localparam alu_slt = 3'd3;
 
     always @ * begin
         case (Op)
