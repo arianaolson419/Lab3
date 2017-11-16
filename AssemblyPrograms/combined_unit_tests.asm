@@ -41,7 +41,7 @@ subtest:
 # Reset the designated result register
 addi $t0, $zero, 0
 
-sub $t0, $t1, $t2	# $t0 = 57 - 6 = 51
+sub $t0, $t1, $t2	# $t0 = 6 - 57 = -51
 sub $t0, $t3, $t4	# $t0 = -9 - 20 = -29
 sub $t0, $t5, $t6	# $t0 = -5 - -11 = 6
 
@@ -64,11 +64,27 @@ bne $t3, $t4, branchtaken
 
 saveres:
 addi $t5, $t3, 0	# $t5 = 4
-j end
+j swtest
 
 branchtaken:
 addi $t3, $t3, 1
 j whileloop
+
+swtest:
+addi $sp, $zero, 16380
+addi $t1, $zero, 2
+addi $t2, $zero, 169
+
+sw $t1, 0($sp)
+sw $t2, 4($sp)
+
+lwtest:
+lw $t3, 0($sp)	# $t3 = $t1 = 2
+lw $t4, 4($sp)	# $t4 = $t2 = 169
+
+
+
+
 
 end:
 j end
