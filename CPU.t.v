@@ -130,8 +130,8 @@ module testCPU ();
 		// PC = 76
 		CLK = 1; #12000; CLK = 0; #12000;
 		$display("Program counter: %h", dut.PC);	
-		if (dut.c.regfile.register8out != 32'd51) begin
-			$display("Error at register $t0. Expected value: %h, actual value: %h", 32'd51, dut.c.regfile.register8out);
+		if (dut.c.regfile.register8out != -32'd51) begin
+			$display("Error at register $t0. Expected value: %h, actual value: %h", -32'd51, dut.c.regfile.register8out);
 		end
 
 		// PC = 80
@@ -208,8 +208,8 @@ module testCPU ();
 		// PC = 124
 		CLK = 1; #12000; CLK = 0; #12000;
 		$display("Program counter: %h", dut.PC);	
-		if (dut.c.regfile.register11out != 32'd3) begin
-			$display("Error at register $t0. Expected value: %h, actual value: %h", 32'd3, dut.c.regfile.register11out);
+		if (dut.c.regfile.register11out != 32'd4) begin
+			$display("Error at register $t0. Expected value: %h, actual value: %h", 32'd4, dut.c.regfile.register11out);
 		end
 
 		CLK = 1; #12000; CLK = 0; #12000;
@@ -218,9 +218,12 @@ module testCPU ();
 		// PC = 116
 		CLK = 1; #12000; CLK = 0; #12000;
 		$display("Program counter: %h", dut.PC);	
-		if (dut.c.regfile.register8out != 32'd4) begin
+		if (dut.c.regfile.register13out != 32'd4) begin
 			$display("Error at register $t0. Expected value: %h, actual value: %h", 32'd4, dut.c.regfile.register8out);
 		end
+
+		CLK = 1; #12000; CLK = 0; #12000;
+		CLK = 1; #12000; CLK = 0; #12000;
 
 	end
 
