@@ -11,7 +11,7 @@ module testCPU ();
 
 	initial begin
 		$dumpfile("CPU.vcd");
-		$dumpvars(0, testCPU, dut.c.datamemory.memory[8]);
+		$dumpvars(0, testCPU, dut.c.datamemory.memory[4095]);
 
 		// // add $t1, $zero, $zero
 		// mem[0] = 32'h00004820;
@@ -222,6 +222,17 @@ module testCPU ();
 			$display("Error at register $t0. Expected value: %h, actual value: %h", 32'd4, dut.c.regfile.register8out);
 		end
 
+		CLK = 1; #12000; CLK = 0; #12000;
+		CLK = 1; #12000; CLK = 0; #12000;
+
+		CLK = 1; #12000; CLK = 0; #12000;
+		CLK = 1; #12000; CLK = 0; #12000;
+		CLK = 1; #12000; CLK = 0; #12000;
+		CLK = 1; #12000; CLK = 0; #12000;
+		CLK = 1; #12000; CLK = 0; #12000;
+		CLK = 1; #12000; CLK = 0; #12000;
+		CLK = 1; #12000; CLK = 0; #12000;
+		CLK = 1; #12000; CLK = 0; #12000;
 		CLK = 1; #12000; CLK = 0; #12000;
 		CLK = 1; #12000; CLK = 0; #12000;
 
