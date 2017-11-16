@@ -10,7 +10,7 @@ module memory
 )
 (
     input 		                clk,
-    output reg [width-1:0]      dataOut,
+    output [width-1:0]      dataOut,
     input [addresswidth-1:0]    address,
     input                       writeEnable,
     input [width-1:0]           dataIn
@@ -22,8 +22,8 @@ module memory
     always @(negedge clk) begin
         if(writeEnable)
             memory[address] <= dataIn;
-        dataOut <= memory[address];
     end
+    assign dataOut = memory[address];
 
     initial $readmemh("Core/data_memory.dat", memory);
 
