@@ -8,25 +8,31 @@
 module multiplexerTestBenchHarness();
 	reg begintest0;
 	reg begintest1;
+	reg begintest2;
 	wire endtest0;
 	wire endtest1;
+	wire endtest2;
 	wire dutpassed0;
 	wire dutpassed1;
+	wire dutpassed2;
 
 	mux32to1by1Test test0 (begintest0, endtest0, dutpassed0);
 	mux32to32by1Test test1 (begintest1, endtest1, dutpassed1);
+	mux4inputTest test2 (begintest2, endtest2, dutpassed2);
 
 	initial begin
 		begintest0 = 0;
 		begintest1 = 0;
+		begintest2 = 0;
 		#10;
 		begintest0 = 1;
 		begintest1 = 1;
+		begintest2 = 1;
 		#1000;
 	end
 
-	always @(posedge endtest0 && endtest1) begin
-		if (dutpassed0 == 1 || dutpassed1 == 1) begin
+	always @(posedge endtest0 && endtest1 && endtest2) begin
+		if (dutpassed0 == 1 || dutpassed1 == 1 || dutpassed2 == 1) begin
 			$display("All multiplexer tests passed.");
 		end
 	end
