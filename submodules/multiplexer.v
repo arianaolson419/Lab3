@@ -40,8 +40,8 @@ input[width-1:0] input0, input1, input2, input3,
 input[1:0] address,
 output[width-1:0] out
 );
-	wire[5:0] mux [width-1:0];
-	assign mux[0] = input0[width-1:0];
+	wire[width-1:0] mux [3:0];
+	assign mux[0] = input0;
 	assign mux[1] = input1[width-1:0];
 	assign mux[2] = input2[width-1:0];
 	assign mux[3] = input3[width-1:0];
