@@ -13,7 +13,7 @@ We designed our 32-bit MIPS-subset CPU to support the following instructions:
 
 We felt this would give us a good mix of simplicity, while still allowing the execution of complex programs.
 
-We broke up our single-cycle CPU design into three main components: an instruction parser, a PC calculator, and a core module.  The instruction parser decoded instructions from instruction memory directly into the control signals we used for the various components in our other modules.  Our PC calculator handled the changes that needed to be made to the program counter based on information from the various J-type instructions.  Finally, our core module handled the main functions performed by R and I-type instructions, handling calculations and load/store word operations.
+We broke up our single-cycle CPU design into three main components: an instruction parser, a PC calculator, and a core module.  The instruction parser decoded instructions from instruction memory directly into the control signals we used for the various components in our other modules.  Our PC calculator handled the changes that needed to be made to the program counter based on information from the various J-type instructions.  Finally, our core module addressed the main functions performed by R and I-type instructions, handling calculations and load/store word operations.
 
 ## Architechture
 
@@ -57,6 +57,10 @@ You can run our tests using the following command:
 # Insert testing command here
 
 We tested our CPU with unit tests and assembly program tests that attempted to use all of the implemented operations in various patterns.  After using the tests and GTKWAVE to examine the waveforms of our CPU, we identified and fixed all of the bugs that prevented our test cases from running correctly.  
+
+## Work Plan Reflection
+
+We created a work plan and allocated sufficient amount of time for each section of the plan in the event that we encountered roadblocks during our CPU creation.  We actually stayed on track with our work plan throughout the majority of this lab, only having to spend a couple of extra hours for the debugging of our module integration.  Overall, we effectively managed our time thanks to a proper amount of planning in the beginning of the lab and communication amongst team members as we worked on our individual sections.
 
 ## Programs ##
 
