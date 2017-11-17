@@ -58,7 +58,7 @@ You can run our tests using the following commands:
 
 `chmod 755 run_tests.sh`
 
-*Needs to be run once in order for the file to be executed*
+*Needs to be run once in order for the file to be executable*
 
 `./run_tests.sh`
 
