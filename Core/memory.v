@@ -5,7 +5,7 @@ The memory used in the CPU
 module memory
 #(
     parameter addresswidth  = 32,
-    parameter depth         = addresswidth,
+    parameter depth         = addresswidth * 2,
     parameter width         = 32
 )
 (
@@ -21,9 +21,9 @@ module memory
 
     always @(negedge clk) begin
         if(writeEnable)
-            memory[address] <= dataIn;
+            memory[address >> 2] <= dataIn;
     end
-    assign dataOut = memory[address];
+    assign dataOut = memory[address >> 2];
 
     initial $readmemh("Core/data_memory.dat", memory);
 
