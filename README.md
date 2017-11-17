@@ -56,10 +56,11 @@ Our testing approach was as follows:
 
 You can run our tests using the following commands:
 
-~~~chmod 755 run_tests.sh~~~
+`chmod 755 run_tests.sh`
+
 *Needs to be run once in order for the file to be executed*
 
-~~~./run_tests.sh~~~
+`./run_tests.sh`
 
 
 We tested our CPU with unit tests and assembly program tests that attempted to use all of the implemented operations in various patterns.  After using the tests and GTKWAVE to examine the waveforms of our CPU, we identified and fixed all of the bugs that prevented our test cases from running correctly.  
