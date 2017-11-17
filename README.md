@@ -54,9 +54,13 @@ Our testing approach was as follows:
 3. Integration test top-level module with test assmebly programs. 
 
 
-You can run our tests using the following command:
+You can run our tests using the following commands:
 
-# Insert testing command here
+~~~chmod 755 run_tests.sh~~~
+*Needs to be run once in order for the file to be executed*
+
+~~~./run_tests.sh~~~
+
 
 We tested our CPU with unit tests and assembly program tests that attempted to use all of the implemented operations in various patterns.  After using the tests and GTKWAVE to examine the waveforms of our CPU, we identified and fixed all of the bugs that prevented our test cases from running correctly.  
 
