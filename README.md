@@ -51,9 +51,12 @@ Our testing approach was as follows:
 2. Unit test top-level module with each instruction type
 3. Integration test top-level module with test assmebly programs. 
 
+
 You can run our tests using the following command:
 
 # Insert testing command here
+
+We tested our CPU with unit tests and assembly program tests that attempted to use all of the implemented operations in various patterns.  After using the tests and GTKWAVE to examine the waveforms of our CPU, we identified and fixed all of the bugs that prevented our test cases from running correctly.  
 
 ## Programs ##
 
