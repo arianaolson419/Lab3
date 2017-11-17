@@ -89,7 +89,7 @@ input       Clk     // Clock (Positive Edge Triggered)
   register32 reg26 (register26out, WriteData, decoderOut[26], Clk);
   register32 reg27 (register27out, WriteData, decoderOut[27], Clk);
   register32 reg28 (register28out, WriteData, decoderOut[28], Clk);
-  // register32 reg29 (register29out, WriteData, decoderOut[29], Clk);
+  register32 reg29 (register29out, WriteData, decoderOut[29], Clk);
   register32 reg30 (register30out, WriteData, decoderOut[30], Clk);
   register32 reg31 (register31out, WriteData, decoderOut[31], Clk);
 
@@ -110,7 +110,5 @@ input       Clk     // Clock (Positive Edge Triggered)
     register17out, register18out, register19out, register20out, register21out,
     register22out, register23out, register24out, register25out, register26out,
     register27out, register28out, register29out, register30out, register31out);
-
-  assign register29out = 32'b00000000000000000000000000000000;
 
 endmodule
