@@ -15,6 +15,8 @@ We felt this would give us a good mix of simplicity, while still allowing the ex
 
 We broke up our single-cycle CPU design into three main components: an instruction parser, a PC calculator, and a core module.  The instruction parser decoded instructions from instruction memory directly into the control signals we used for the various components in our other modules.  Our PC calculator handled the changes that needed to be made to the program counter based on information from the various J-type instructions.  Finally, our core module addressed the main functions performed by R and I-type instructions, handling calculations and load/store word operations.
 
+We re-used and modified some modules from previous labs and homework so that we wouldn't have to reimplement a lot of work from scratch.  Specifically, we re-used and modified the ALU, register, data memory, muxes, and DFF gates for our CPU.  The ALU, register, and data memory were all used in our core module, muxes were used in both the core module and PC calculator, and a DFF gate was used for our program counter.  
+
 ## Architechture
 
 Our first step in designing our CPU was to create a block diagram with which could successfully run every type of instruction that we needed. We split up our CPU into 3 major components, so that we could each work on them in parallel.
