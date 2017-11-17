@@ -13,6 +13,8 @@ We designed our 32-bit MIPS-subset CPU to support the following instructions:
 
 We felt this would give us a good mix of simplicity, while still allowing the execution of complex programs.
 
+We broke up our single-cycle CPU design into three main components: an instruction parser, a PC calculator, and a core module.  The instruction parser decoded instructions from instruction memory directly into the control signals we used for the various components in our other modules.  Our PC calculator handled the changes that needed to be made to the program counter based on information from the various J-type instructions.  Finally, our core module handled the main functions performed by R and I-type instructions, handling calculations and load/store word operations.
+
 ## Architechture
 
 Our first step in designing our CPU was to create a block diagram with which could successfully run every type of instruction that we needed.
@@ -36,7 +38,7 @@ SUB         | 0      | 0      | 1     | 0     | Sub     | 0        | 1     | 0  
 SLT         | 0      | 0      | 1     | 0     | Slt     | 0        | 1     | 0      |
 
 
-Clearly defining the structure of our processor andn our control signal mapping from an early point made final implementation and debugging much easier.
+Clearly defining the structure of our processor and our control signal mapping from an early point made final implementation and debugging much easier.
 
 ## Testing
 
