@@ -3,7 +3,7 @@
 ### Computer Architecture Fall 2017
 #### Ariana Olson, Andrew Pan, Jonah Spear
 
-The goal of this project lab was to design, create, and test a 32-bit CPU. We chose to implement a single-cycle CPU given that time was a large constraint (we had <2 weeks from start to finish). 
+The goal of this project lab was to design, create, and test a 32-bit CPU. We chose to implement a single-cycle CPU given that time was a large constraint. Even though we only had <2 weeks from start to finish, we were ultimately successful in our goal.
 
 ## Design
 
