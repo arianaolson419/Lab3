@@ -20,6 +20,7 @@ cat combined_unit_tests.text > mem.dat
 
 ./CPU_unit
 
+cat Core/file.dat > mem.dat
 ./Core/Core
 ./Core/ALU/alu
 ./Core/regfile
