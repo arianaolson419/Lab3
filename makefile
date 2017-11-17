@@ -10,6 +10,10 @@ CPU_fib: CPU.v CPU_fib.t.v
 CPU_while: CPU.v CPU_while.t.v
 	iverilog -Wall -o CPU_while CPU_while.t.v
 
+### CPU fib
+CPU_fib: CPU.v CPU_fib.t.v
+	iverilog -Wall -o CPU_fib.out CPU_fib.t.v
+
 ### PC_Calc Modules
 # PC_Calc top level module
 PC_Calc: PC_Calc/PC_Calc.v  PC/PC_Calc.t.v addr_concat imm_concat is_zero_and
