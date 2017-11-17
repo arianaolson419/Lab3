@@ -2,14 +2,15 @@
 # Function call example: recursive Fibonacci
 
 main: 
+
+addi $sp, $zero, 64
 # Set up arguments for call to fib_test
-addi  $a0, $zero, 4	# arg0 = 4
-addi  $a1, $zero, 10	# arg1 = 10
+addi  $a0, $zero, 7	# arg0 = 4
+addi  $a1, $zero, 3	# arg1 = 10
 jal   fib_test
 
 # Print result
 add   $a0, $zero, $v0	# Copy result into argument register a0
-jal   print_result
 
 # Jump to "exit", rather than falling through to subroutines
 j     program_end
@@ -108,11 +109,11 @@ sw    $s0, 0($sp)
 
 add   $s0, $zero, $a0	# Save argument (integer to print) to s0
 
-li    $v0, 4		# Service code to print string
+addi    $v0, $zero, 4		# Service code to print string
 la    $a0, result_str	# Argument is memory address of string to print
 syscall
 
-li    $v0, 1		# Service code to print integer
+addi    $v0, $zero, 1		# Service code to print integer
 add   $a0, $zero, $s0	# Argument is integer to print
 syscall
 
