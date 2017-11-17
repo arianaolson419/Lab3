@@ -1,8 +1,14 @@
-all: core alu regfile memory signextend CPU
+all: core alu regfile memory signextend CPU_unit CPU_fib CPU_while
 
 ### CPU Module
-CPU: CPU.v CPU.t.v
-	iverilog -Wall -o CPU.out CPU.t.v
+CPU_unit: CPU.v CPU_unit.t.v
+	iverilog -Wall -o CPU_unit CPU_unit.t.v
+
+CPU_fib: CPU.v CPU_fib.t.v
+	iverilog -Wall -o CPU_fib CPU_fib.t.v
+
+CPU_while: CPU.v CPU_while.t.v
+	iverilog -Wall -o CPU_while CPU_while.t.v
 
 ### PC_Calc Modules
 # PC_Calc top level module
