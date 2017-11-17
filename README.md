@@ -21,10 +21,22 @@ Our first step in designing our CPU was to create a block diagram with which cou
 
 Once that was completed, we made a table mapping instruction type to control signal value.
 
-# Insert control Table Here
+Instruction | RegDst | ALUSrc | RegWR | MemWr | ALUCtrl | MemToReg | PCSel | AddSel |
+:----------:|:------:|:------:|:-----:|:-----:|:-------:|:--------:|:-----:|:------:|
+LW          | 1      | 1      | 1     | 0     | Add     | 1        | 1     | 0      |
+SW          | x      | 1      | 0     | 1     | Add     | x        | 1     | 0      |
+J           | x      | x      | 0     | 0     | x       | x        | 0     | 0      |
+JR          | x      | x      | 0     | 0     | x       | x        | 2     | 0      |
+JAL         | 2      | x      | 1     | 0     | x       | 2        | 0     | 0      |
+BNE         | x      | 0      | 0     | 0     | Sub     | x        | 1     | 1      |
+XORI        | 1      | 1      | 1     | 0     | Xor     | 0        | 1     | 0      |
+ADDI        | 1      | 1      | 1     | 0     | Add     | 0        | 1     | 0      |
+ADD         | 0      | 0      | 1     | 0     | Add     | 0        | 1     | 0      |
+SUB         | 0      | 0      | 1     | 0     | Sub     | 0        | 1     | 0      |
+SLT         | 0      | 0      | 1     | 0     | Slt     | 0        | 1     | 0      |
 
-Clearly defining the structure of our processor from an early made final implementation and debugging much easier.
 
+Clearly defining the structure of our processor andn our control signal mapping from an early point made final implementation and debugging much easier.
 
 ## Testing
 
@@ -35,28 +47,13 @@ Our testing approach was as follows:
 
 You can run our tests using the following command:
 
-#Insert testing command here
+# Insert testing command here
 
 ## Programs ##
 
 You will write, assemble and run a set of programs on your CPU that act as a high-level test-bench.  These programs need to exercise all of the portions of your design and give a clear pass/fail response.
 
 We will work on one test program (Fibonacci) in class. In addition, you must write (at least) one test assembly program of your own. We will collect these test programs and redistribute them to all teams, so that you have a richer variety of assembly tests for your processor.
-
-### Submitting your test program ###
-
-**Due: November 14 before class** by GitHub pull request
-
-In addition to your actual test assembly code, write a short README with:
- - Expected results of the test
- - Any memory layout requirements (e.g. `.data` section)
- - Any instructions used outside the basic required subset (ok to use, but try to submit at least one test program everyone can run)
-
-Submit the test program and README by submitting a pull request to the main course repository. Code should be in `/asmtest/<your-team-name>/` (you may use subfolders if you submit multiple tests).
-
-After submitting your test program, you may use any of the programs written by your peers to test your processor.
-
-
 
 ## Deliverables ##
 
