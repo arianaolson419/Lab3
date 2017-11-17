@@ -21,7 +21,7 @@ cat combined_unit_tests.text > mem.dat
 ./CPU_unit
 
 cat Core/file.dat > mem.dat
-./Core/Core
+./Core/core
 ./Core/ALU/alu
 ./Core/regfile
 ./PC_Calc/PC_Calc
