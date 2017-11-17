@@ -76,15 +76,21 @@ addi $t1, $zero, 2
 addi $t2, $zero, 169
 
 sw $t1, 0($sp)
-sw $t2, 4($sp)
+sw $t2, -4($sp)
 
 lwtest:
 lw $t3, 0($sp)	# $t3 = $t1 = 2
-lw $t4, 4($sp)	# $t4 = $t2 = 169
+lw $t4, -4($sp)	# $t4 = $t2 = 169
 
+jaltest:
+addi $t1, $zero 100	# $t1 = 100
+jal jrtest
+addi $t1, $t1, 1	# $t1 = 102
+j end
 
-
-
+jrtest:
+addi $t1, $t1, 1	# $t1 = 101
+jr $ra
 
 end:
 j end

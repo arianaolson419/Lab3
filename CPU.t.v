@@ -11,7 +11,7 @@ module testCPU ();
 
 	initial begin
 		$dumpfile("CPU.vcd");
-		$dumpvars(0, testCPU, dut.c.datamemory.memory[4095]);
+		$dumpvars(0, testCPU);
 
 		// // add $t1, $zero, $zero
 		// mem[0] = 32'h00004820;
@@ -223,15 +223,74 @@ module testCPU ();
 		end
 
 		CLK = 1; #12000; CLK = 0; #12000;
+
+		// PC = 132
 		CLK = 1; #12000; CLK = 0; #12000;
+		$display("Program counter: %h", dut.PC);	
+		if (dut.c.regfile.register29out != 32'd16380) begin
+			$display("Error at register $sp. Expected value: %h, actual value: %h", 32'd16380, dut.c.regfile.register29out);
+		end
+
+		// PC = 136
+		CLK = 1; #12000; CLK = 0; #12000;
+		$display("Program counter: %h", dut.PC);	
+		if (dut.c.regfile.register9out != 32'd2) begin
+			$display("Error at register $t1. Expected value: %h, actual value: %h", 32'd2, dut.c.regfile.register9out);
+		end
+
+		// PC = 140
+		CLK = 1; #12000; CLK = 0; #12000;
+		$display("Program counter: %h", dut.PC);	
+		if (dut.c.regfile.register10out != 32'd169) begin
+			$display("Error at register $t1. Expected value: %h, actual value: %h", 32'd169, dut.c.regfile.register10out);
+		end
 
 		CLK = 1; #12000; CLK = 0; #12000;
 		CLK = 1; #12000; CLK = 0; #12000;
+
+		// PC = 152
 		CLK = 1; #12000; CLK = 0; #12000;
+		$display("Program counter: %h", dut.PC);	
+		if (dut.c.regfile.register11out != 32'd2) begin
+			$display("Error at register $t1. Expected value: %h, actual value: %h", 32'd2, dut.c.regfile.register11out);
+		end
+
+		// PC = 156
 		CLK = 1; #12000; CLK = 0; #12000;
+		$display("Program counter: %h", dut.PC);	
+		if (dut.c.regfile.register12out != 32'd169) begin
+			$display("Error at register $t1. Expected value: %h, actual value: %h", 32'd169, dut.c.regfile.register12out);
+		end
+
+		// PC = 160
 		CLK = 1; #12000; CLK = 0; #12000;
+		$display("Program counter: %h", dut.PC);	
+		if (dut.c.regfile.register9out != 32'd100) begin
+			$display("Error at register $t1. Expected value: %h, actual value: %h", 32'd100, dut.c.regfile.register9out);
+		end
+
+		// PC = 164
 		CLK = 1; #12000; CLK = 0; #12000;
+		$display("Program counter: %h", dut.PC);	
+		if (dut.c.regfile.register31out != 32'd168) begin
+			$display("Error at register $t1. Expected value: %h, actual value: %h", 32'd168, dut.c.regfile.register31out);
+		end
+
+		// PC = 176
 		CLK = 1; #12000; CLK = 0; #12000;
+		$display("Program counter: %h", dut.PC);	
+		if (dut.c.regfile.register9out != 32'd101) begin
+			$display("Error at register $t1. Expected value: %h, actual value: %h", 32'd101, dut.c.regfile.register9out);
+		end
+
+		CLK = 1; #12000; CLK = 0; #12000;
+
+		// PC = 168
+		CLK = 1; #12000; CLK = 0; #12000;
+		$display("Program counter: %h", dut.PC);	
+		if (dut.c.regfile.register9out != 32'd102) begin
+			$display("Error at register $t1. Expected value: %h, actual value: %h", 32'd102, dut.c.regfile.register9out);
+		end
 		CLK = 1; #12000; CLK = 0; #12000;
 		CLK = 1; #12000; CLK = 0; #12000;
 		CLK = 1; #12000; CLK = 0; #12000;
