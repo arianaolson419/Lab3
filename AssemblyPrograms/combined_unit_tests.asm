@@ -71,7 +71,7 @@ addi $t3, $t3, 1
 j whileloop
 
 swtest:
-addi $sp, $zero, 16380
+addi $sp, $zero, 64
 addi $t1, $zero, 2
 addi $t2, $zero, 169
 
