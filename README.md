@@ -17,9 +17,13 @@ We broke up our single-cycle CPU design into three main components: an instructi
 
 ## Architechture
 
-Our first step in designing our CPU was to create a block diagram with which could successfully run every type of instruction that we needed.
+Our first step in designing our CPU was to create a block diagram with which could successfully run every type of instruction that we needed. We split up our CPU into 3 major components, so that we could each work on them in parallel.
 
-# Insert picture of block diagram was needed
+![Instruction Parser Diagram](https://github.com/arianaolson419/Lab3/blob/master/Static/Instruction%20Parser.png "Instruction Parser Diagram")
+
+![PC Calc Diagram](https://github.com/arianaolson419/Lab3/blob/master/Static/PC%20Calc.png "PC Calc Diagram")
+
+![Core Diagram](https://github.com/arianaolson419/Lab3/blob/master/Static/Core.png "Core Diagram")
 
 Once that was completed, we made a table mapping instruction type to control signal value.
 
