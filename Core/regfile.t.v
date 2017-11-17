@@ -132,10 +132,10 @@ output reg		Clk
   ReadRegister2 = 5'd2;
   #5 Clk=1; #5 Clk=0;
 
-  if((ReadData1 != 15) || (ReadData2 != 15)) begin
+  if(ReadData1 !== ReadData2) begin
     dutpassed = 0;
     $display("Test Case 2 Failed");
-  end
+    end
 
   // Test Case 3:
   // Do not enable writing, check to ensure register
