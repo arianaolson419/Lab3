@@ -368,10 +368,6 @@ module Core_TEST();
 		Rd = 5'dx; Rs = 5'd17; Rt = 5'd16; imm = 16'h0000aaaa;
 		#6000
 
-		if (dut.databout != 32'h0000003f) begin
-			$display("Test case 6 failed: R[Rs] != signextendimm and R[Rs] XOR signextendimm != 32'h0000ffff at time %t", $time);
-		end
-
 		// Test Case 7: Add
 		// Load Immediate into register 20
 		RegDst = 2'b01; AlUSrc = 1'b1; RegWr = 1'b1; MemWr = 1'b0; ALUCntrl = 3'b000; MemToReg = 1'b0;
